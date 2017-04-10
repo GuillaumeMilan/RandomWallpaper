@@ -1,11 +1,11 @@
 #!/bin/bash 
 
-echo "Nous allons changer aléatoirement votre fond d\'écran"
+echo "Nous allons changer aléatoirement votre fond d'écran"
 cd ~
 rm -rf .RandomWallPaperByGuignomes
 mkdir .RandomWallPaperByGuignomes
 cd .RandomWallPaperByGuignomes
-wget http://www.palabrasaleatorias.com/mots-aleatoires.php?fs=1&fs2=1&Submit=Nouveau+mot>/dev/null
+wget -q http://www.palabrasaleatorias.com/mots-aleatoires.php?fs=1&fs2=1&Submit=Nouveau+mot &> /dev/null
 sleep 3
 var=$(awk '/<div style="font-size:3em; color:#6200C5;">/{getline; print}' *)
 mot=$(echo $var | sed -n "s/<\/div>//p")
@@ -19,7 +19,7 @@ firefox $adressegoogle
 #wget -qO google_image $imagelink
 #ligne=$(grep "<a class=\"rg_l\" href=\"" *)
 #ligne=$(sed -n "s/href=\"*\"/*/g")
-echo $ligne
+#echo $ligne
 #http://askubuntu.com/questions/66914/how-to-change-desktop-background-from-command-line-in-unity
 #cat * | sed href=\"[^"]\"/[^"]/g'
 #sed 's/<a class=\"rg_l\" href=\"[^"]\"/[^"]/g'
