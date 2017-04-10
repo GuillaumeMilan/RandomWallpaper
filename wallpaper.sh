@@ -10,7 +10,7 @@ sleep 3
 var=$(awk '/<div style="font-size:3em; color:#6200C5;">/{getline; print}' *)
 mot=$(echo $var | sed -n "s/<\/div>//p")
 rm *
-adressegoogle="https://www.google.fr/search?q=wallpaper+$mot&safe=off&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiLl5_H5JnTAhXRyRoKHRtrBHUQ_AUICCgB&biw=1920&bih=840"
+adressegoogle="https://www.google.fr/search?q=wallpaper+$mot&safe=off&biw=1920&bih=880&tbs=isz:ex,iszw:1920,iszh:1080&tbm=isch&source=lnt"
 firefox $adressegoogle
 #echo "APRES CA C'EST L'ADRESSE"
 #echo $adressegoogle
