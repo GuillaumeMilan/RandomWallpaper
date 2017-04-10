@@ -5,16 +5,16 @@ cd ~
 rm -rf .RandomWallPaperByGuignomes
 mkdir .RandomWallPaperByGuignomes
 cd .RandomWallPaperByGuignomes
-wget -q http://www.palabrasaleatorias.com/mots-aleatoires.php?fs=1&fs2=1&Submit=Nouveau+mot &> /dev/null
+wget -q http://www.palabrasaleatorias.com/mots-aleatoires.php?fs=1&fs2=1&Submit=Nouveau+mot 
 sleep 3
 var=$(awk '/<div style="font-size:3em; color:#6200C5;">/{getline; print}' *)
 mot=$(echo $var | sed -n "s/<\/div>//p")
 rm *
 adressegoogle="https://www.google.fr/search?q=wallpaper+$mot&safe=off&biw=1920&bih=880&tbs=isz:ex,iszw:1920,iszh:1080&tbm=isch&source=lnt"
-firefox $adressegoogle
-wget -q --no-cache --no-cookie --user-agent="Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0" --referer="www.google.com" -e robots=off  $adressegoogle #&>/dev/null
-ls
-#firefox *
+firefox $adressegoogle &
+wget --no-cache --no-cookie --user-agent="Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0" --referer="www.google.com" -e robots=off  $adressegoogle 
+cd ~/.RandomWallPaperByGuignomes
+firefox * &
 #echo $adressegoogle
 #imagelink=$(wget --user-agent 'Mozilla/5.0' -qO - |  "$adressegoogle")
 #echo "APRES CA C'EST L'ADRESSE V2"
