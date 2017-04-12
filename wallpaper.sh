@@ -11,8 +11,13 @@ var=$(awk '/<div style="font-size:3em; color:#6200C5;">/{getline; print}' *)
 mot=$(echo $var | sed -n "s/<\/div>//p")
 rm *
 adressegoogle="https://www.google.fr/search?q=wallpaper+$mot&safe=off&biw=1920&bih=880&tbs=isz:ex,iszw:1920,iszh:1080&tbm=isch&source=lnt"
-firefox $adressegoogle &
-wget -q --convert-link -p --user-agent="Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0" -e robots=off  $adressegoogle 
+firefox $adressegoogle -save-to-folder ./somewhere
+wget -q -p -k --user-agent="Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0" --referer="www.google.fr" -e robots=off  $adressegoogle 
+cd 
+mv .RandomWallPaperByGuignomes/www.google.fr/search* .RandomWallPaperByGuignomes/www.google.fr/index.html
+cd .RandomWallPaperByGuignomes/www.google.fr/
+firefox index.html
+
 #echo $adressegoogle
 #imagelink=$(wget --user-agent 'Mozilla/5.0' -qO - |  "$adressegoogle")
 #echo "APRES CA C'EST L'ADRESSE V2"
